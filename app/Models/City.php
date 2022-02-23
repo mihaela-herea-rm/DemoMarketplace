@@ -16,4 +16,13 @@ class City extends Model
     {
         return $this->belongsTo(County::class);
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['county'] ?? false, function($query, $county) {
+            $query->whereHas('county', function($query) use ($county) {
+                $query->where('slug', $county);
+            });
+        });
+    }
 }

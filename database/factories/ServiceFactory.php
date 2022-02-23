@@ -29,7 +29,7 @@ class ServiceFactory extends Factory
             'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
             'price' => random_int(50, 900),
             'active' => $this->faker->boolean(),
-            'gender' => random_int(0, 2),
+            'gender' => random_int(1, 3),
         ];
     }
 }
