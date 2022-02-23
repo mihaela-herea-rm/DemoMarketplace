@@ -10,7 +10,7 @@ class Service extends Model
     use HasFactory;
     protected $guarded = [];
 
-    protected $with = ['category', 'city', 'author'];
+    protected $with = ['category', 'city'];
 
     public function category()
     {

@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Service;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +14,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Service::factory(10)->create();
+        $categorySeeder = new CategorySeeder();
+        $countySeeder = new CountySeeder();
+        $citySeeder = new CitySeeder();
+        $userSeeder = new UserSeeder();
+        $serviceSeeder = new ServicesSeeder();
+
+        Schema::disableForeignKeyConstraints();
+        $serviceSeeder->truncate();
+        $categorySeeder->truncate();
+        $citySeeder->truncate();
+        $countySeeder->truncate();
+        $userSeeder->truncate();
+        Schema::enableForeignKeyConstraints();
+
+        $categorySeeder->run();
+        $countySeeder->run();
+        $citySeeder->run();
+        $userSeeder->run();
+        $serviceSeeder->run();
     }
 }
