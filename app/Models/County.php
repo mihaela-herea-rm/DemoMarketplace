@@ -10,7 +10,7 @@ class County extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function city()
+    public function cities()
     {
         return $this->hasMany(City::class);
     }

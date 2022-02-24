@@ -2,9 +2,11 @@
 <article
     {{$attributes->merge(['class' => "transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl"])}}>
     <div class="py-6 px-5">
-        <div>
-            <img src="/images/thumb.jpg" alt="Service thumbnail" class="rounded-xl">
-        </div>
+        <a href="//services/{{$service->slug}}">
+            <div>
+                <img src="/images/thumb.jpg" alt="Service thumbnail" class="rounded-xl">
+            </div>
+        </a>
 
         <div class="flex-1 flex flex-col justify-between">
             <header class="mt-8 lg:mt-0">
@@ -17,7 +19,7 @@
 
                 <div class="mt-4">
                     <h1 class="text-3xl">
-                        <a href="/posts/{{$service->slug}}">{{$service->title}}</a>
+                        <a href="/service/{{$service->slug}}">{{$service->title}}</a>
                     </h1>
 
                     <span class="mt-2 block text-gray-400 text-xs">
@@ -26,13 +28,13 @@
                 </div>
             </header>
 
-            <div class="text-sm mt-2 space-y-4">
+            <div class="text-sm mt-2 space-y-4 max-h-16 overflow-hidden break-words text-ellipsis">
                 {!! $service->excerpt !!}
             </div>
 
             <footer class="flex justify-between items-center mt-8">
                 <div class="flex items-center text-sm">
-                    <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                    <img src="https://i.pravatar.cc/60?u={{$service->author->id}}" alt="Avatar" class="rounded-full">
                     <div class="ml-3">
                         <a href="/?author={{$service->author->username}}"><h5 class="font-bold">{{$service->author->name}}</h5></a>
                     </div>

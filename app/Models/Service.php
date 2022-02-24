@@ -27,4 +27,19 @@ class Service extends Model
         return $this->belongsTo(City::class);
     }
 
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['category'] ?? false, function ($query, $category) {
+            $query->where('category_id', $category);
+        });
+
+        if (!empty($filters['city'])) {
+            $query->where('city_id', $filters['city']);
+        } else {
+            $query->when($filters['city_id'] ?? false, function ($query, $city) {
+                $query->whereHas('city_id', $city);
+            });
+        }
+    }
+
 }
