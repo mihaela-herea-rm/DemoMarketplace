@@ -18,10 +18,12 @@
     <nav class="bg-white shadow-xl rounded-xl">
         <div class="container mx-auto py-3">
             <div class="flex justify-between items-center">
-                <div class="text-xl font-semibold text-gray-700">
+                <div class="text-xl font-semibold text-gray-700 inline-flex align-middle">
                     <a href="/">
                         <img src="/images/logo.png" alt="MyMarketPlace Logo" width="165" height="16">
                     </a>
+                    <a href="/" class="font-semibold md:flex md:items-center pl-4">Home</a>
+                    <a href="/contact" class="font-semibold md:flex md:items-center pl-4">Contact</a>
                 </div>
                 <div class="md:flex md:items-center md:justify-between">
                     <!-- Mobile menu button -->

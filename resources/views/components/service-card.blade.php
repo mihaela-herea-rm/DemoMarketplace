@@ -2,7 +2,7 @@
 <article
     {{$attributes->merge(['class' => "transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl"])}}>
     <div class="py-6 px-5">
-        <a href="//services/{{$service->slug}}">
+        <a href="/services/{{$service->slug}}">
             <div>
                 <img src="/images/thumb.jpg" alt="Service thumbnail" class="rounded-xl">
             </div>
@@ -18,17 +18,20 @@
                 </div>
 
                 <div class="mt-4">
-                    <h1 class="text-3xl">
+                    <h1 class="text-xl font-semibold">
                         <a href="/service/{{$service->slug}}">{{$service->title}}</a>
                     </h1>
-
-                    <span class="mt-2 block text-gray-400 text-xs">
-                            Published <time>{{$service->created_at->diffForHumans()}}</time>
-                        </span>
+                    <span class="mt-2 block text-gray-400 text-xs ">
+                        Published <time>{{$service->created_at->diffForHumans()}}</time>
+                    </span>
                 </div>
             </header>
 
-            <div class="text-sm mt-2 space-y-4 max-h-16 overflow-hidden break-words text-ellipsis">
+            <div class="font-semibold mr-6 mb-2 max-h-16 text-xl text-right">
+                {{ number_format($service->price, 0) }} &euro;
+            </div>
+
+            <div class="text-sm mt-2 space-y-4 max-h-16 overflow-hidden break-words text-ellipsis justify-evenly">
                 {!! $service->excerpt !!}
             </div>
 
