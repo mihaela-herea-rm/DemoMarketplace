@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -42,8 +43,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts()
+    public function setPasswordAttribute($password)
     {
-        return $this->hasMany(Service::class);
+        $this->attributes['password'] = bcrypt($password);
     }
 }

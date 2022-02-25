@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Gender;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\User;
@@ -29,7 +30,7 @@ class ServiceFactory extends Factory
             'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
             'price' => random_int(50, 900),
             'active' => $this->faker->boolean(),
-            'gender' => random_int(1, 3),
+            'gender' => array_rand([Gender::MALE, Gender::FEMALE, Gender::ANY]),
         ];
     }
 }
