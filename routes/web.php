@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminServiceController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\RegisterController;
