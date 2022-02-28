@@ -4,7 +4,11 @@
     <div class="py-6 px-5">
         <a href="/services/{{$service->slug}}">
             <div>
-                <img src="/images/thumb.jpg" alt="Service thumbnail" class="rounded-xl">
+                @if($service->thumbnail)
+                    <img src="{{ asset('storage/' . $service->thumbnail)}}" alt="Service thumbnail" class="rounded-xl">
+                @else
+                    <img src="/images/default-thumbnails/{{$service->category_id}}.jpg" alt="Service thumbnail" class="rounded-xl">
+                @endif
             </div>
         </a>
 
@@ -31,7 +35,7 @@
                 {{ number_format($service->price, 0) }} &euro;
             </div>
 
-            <div class="text-sm mt-2 space-y-4 max-h-16 overflow-hidden break-words text-ellipsis justify-evenly">
+            <div class="text-sm mt-2 space-y-4 max-h-18 overflow-hidden break-words text-ellipsis justify-evenly">
                 {!! $service->excerpt !!}
             </div>
 

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = ['id'];
+    protected $fillable = [];
 
     protected $with = ['category', 'city'];
 
@@ -25,6 +26,11 @@ class Service extends Model
     public function city()
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comments::class);
     }
 
     public function scopeFilter($query, array $filters)

@@ -12,6 +12,7 @@ class Locationdropdown extends Component
     public $cities = [];
 
     public $selectedCounty = 0;
+    public $selectedCity = 0;
 
     public function render()
     {
@@ -39,6 +40,12 @@ class Locationdropdown extends Component
         } else {
             $this->cities = [];
         }
+    }
+
+    public function updatedSelectedCity($city)
+    {
+        $this->selectedCity = $city;
+        $this->selectedCounty = City::where('id', $city)->county()->id;
     }
 
 }

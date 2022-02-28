@@ -1,6 +1,6 @@
 
-<x-setting heading="Publish New Post">
-    <form method="POST" action="/admin/posts" enctype="multipart/form-data">
+<x-setting heading="Publish New Service">
+    <form method="POST" action="/admin/services" enctype="multipart/form-data">
         @csrf
         <x-form.input name="title" required/>
         <x-form.input name="slug" required/>
@@ -22,7 +22,9 @@
 
             <x-form.error name="category" />
         </x-form.field>
-
+        <div class="mt-4">
+            <livewire:locationdropdown />
+        </div>
         <x-form.primary-button>Publish</x-form.primary-button>
     </form>
 </x-setting>

@@ -19,8 +19,10 @@ class DatabaseSeeder extends Seeder
         $citySeeder = new CitySeeder();
         $userSeeder = new UserSeeder();
         $serviceSeeder = new ServicesSeeder();
+        $commentsSeeder = new CommentsSeeder();
 
         Schema::disableForeignKeyConstraints();
+        $commentsSeeder->truncate();
         $serviceSeeder->truncate();
         $categorySeeder->truncate();
         $citySeeder->truncate();
