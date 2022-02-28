@@ -37,14 +37,14 @@
                                 </label>
                                 <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                                     <li>
-                                        <a href="#" class="justify-between active:bg-sky-500">
+                                        <a href="/user/profile/{{auth()->user()->id}}" class="justify-between active:bg-sky-500">
                                             Profile
                                             <span class="badge">New</span>
                                         </a>
                                     </li>
                                     @can('admin')
-                                        <li><a href="/admin/service-list" class="active:bg-sky-500">Service List</a></li>
-                                        <li><a href="/admin/add-create" class="active:bg-sky-500">Add New Service</a></li>
+                                        <li><a href="/admin/services" class="active:bg-sky-500">Service List</a></li>
+                                        <li><a href="/admin/services/create" class="active:bg-sky-500">Add New Service</a></li>
                                     @endif
                                     <li><a href="/logout" class="active:bg-sky-500">Logout</a></li>
                                 </ul>
@@ -91,6 +91,14 @@
          class="fixed bg-sky-500 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm"
     >
         <p>{{session('success')}}</p>
+    </div>
+@elseif(session()->has('warning'))
+    <div x-data="{show:true}"
+         x-init="setTimeout(() => show = false, 4000)"
+         x-show="show"
+         class="fixed bg-yellow-400 text-white py-2 px-4 rounded-xl bottom-3 right-3 text-sm"
+    >
+        <p>{{session('warning')}}</p>
     </div>
 @endif
 <livewire:scripts />

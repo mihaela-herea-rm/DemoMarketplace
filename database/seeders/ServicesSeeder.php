@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\City;
+use App\Models\Comments;
 use App\Models\County;
 use App\Models\Service;
 use Illuminate\Database\Seeder;
@@ -17,8 +18,6 @@ class ServicesSeeder extends Seeder
      */
     public function run()
     {
-        Service::truncate();
-
         $countiesLimit = County::count();
         $categoriesLimit = Category::count();
         for($i = 1; $i <= 20; $i++) {
