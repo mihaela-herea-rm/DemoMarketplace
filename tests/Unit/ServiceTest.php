@@ -75,4 +75,25 @@ class ServiceTest  extends TestCase
         ]);
     }
 
+    /** @test */
+    public function a_service_can_be_edited()
+    {
+        $this->initPrerequisites();
+        $this->fakeService('this-is-a-test-slug-update');
+
+        $newTitle = 'This is a new title';
+
+        $this->patch('/admin/services/' . $this->service->id, ['title' => $newTitle])
+            ->assertRedirect();
+
+        $this->assertDatabaseMissing('services', [
+            'id' => $this->service->id,
+            'title' => $newTitle
+        ]);
+        $this->assertDatabaseHas('services', [
+            'id' => $this->service->id,
+            'title' => $this->service->title
+        ]);
+    }
+
 }
