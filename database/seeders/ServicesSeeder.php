@@ -33,6 +33,19 @@ class ServicesSeeder extends Seeder
                 ]
             );
         }
+        for($i = 1; $i <= 5; $i++) {
+            $county_id = random_int(1, $countiesLimit);
+            $cities = City::where('county_id', $county_id)->get();
+            $city_id = random_int($cities[0]->id, $cities[count($cities)-1]->id);
+
+            Service::factory()->create(
+                [
+                    'category_id' => random_int(1, $categoriesLimit),
+                    'city_id' => $city_id,
+                    'user_id' => 5,
+                ]
+            );
+        }
     }
 
     public function truncate()

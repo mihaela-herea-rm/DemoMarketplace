@@ -39,8 +39,8 @@ class Service extends Model
             $query->where('category_id', $category);
         });
 
-        if (!empty($filters['city'])) {
-            $query->where('city_id', $filters['city']);
+        if (!empty($filters['city_id'])) {
+            $query->where('city_id', $filters['city_id']);
         } else {
             $query->when($filters['city_id'] ?? false, function ($query, $city) {
                 $query->whereHas('city_id', $city);
