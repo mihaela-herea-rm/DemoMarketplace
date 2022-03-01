@@ -37,7 +37,8 @@ class AdminServiceList extends Component
     public function render()
     {
         return view('livewire.admin-service-list', [
-            'services' => Service::where('title', 'like', '%' . $this->search . '%')
+            'services' => Service::where('user_id', auth()->user()->id)
+                ->where('title', 'like', '%' . $this->search . '%')
                 ->when($this->sortField, function ($query) {
                     $query->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
                 })->paginate(10),
