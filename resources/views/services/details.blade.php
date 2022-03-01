@@ -10,11 +10,7 @@
                 <x-service-details :service="$service"/>
             </div>
             <section class="col-span-8 col-start-5 mt-10 space-y-6">
-                @include('services._add-comment-form')
-
-                @foreach($service->comments as $comment)
-                    <x-service-comment :comment="$comment"/>
-                @endforeach
+                <livewire:comments-section :service="$service"/>
             </section>
         </div>
     </section>
