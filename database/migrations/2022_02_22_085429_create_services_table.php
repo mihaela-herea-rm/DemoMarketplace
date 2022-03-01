@@ -22,7 +22,6 @@ return new class extends Migration
             $table->text('body');
             $table->text('excerpt');
             $table->string('slug')->unique();
-            $table->boolean('active');
             $table->integer('gender');
             $table->integer('price');
             $table->string('thumbnail')->nullable();

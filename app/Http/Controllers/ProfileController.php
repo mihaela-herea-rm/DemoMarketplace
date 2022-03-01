@@ -10,7 +10,7 @@ class ProfileController extends Controller
     public function get(User $user)
     {
         if (auth()->user()->getUserType() != UserRoles::SUPERADMIN && auth()->user()->id != $user->id) {
-            return back()->with('warning', 'Permission denied!');
+            return redirect('/user/profile/' . auth()->user()->id)->with('warning', 'Permission denied!');
         }
         return view('admin.profile.index', [
             'user' => $user

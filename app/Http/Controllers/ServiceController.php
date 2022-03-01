@@ -25,7 +25,7 @@ class ServiceController extends Controller
         );
         return view('services.list', [
             'services' => Service::latest()
-                ->filter(request(['city', 'category', 'gender']))
+                ->filter(request(['city_id', 'category', 'gender']))
                 ->paginate(9)
                 ->withQuerystring(),
         ]);

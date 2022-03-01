@@ -1,6 +1,6 @@
 @props(['categories', 'gender'])
 
-<div class="flex items-center justify-left h-full w-full bg-gray-900 bg-opacity-50 rounded-xl grid grid-cols-12 gap-4">
+<div class="flex items-center justify-left h-full w-full rounded-xl grid grid-cols-12 gap-4">
     <x-panel class="bg-base-100 shadow-xl bg-white rounded-xl mx-5 md:mx-0 col-start-1 col-span-12 md:col-start-3 md:col-span-3 my-10">
         <h1 class="text-center font-bold text-xl">Find a service</h1>
         <form method="GET" action="/list" class="mt-10">

@@ -37,6 +37,7 @@ class Locationdropdown extends Component
                 ->without('county')
                 ->orderBy('name')
                 ->get();
+            $this->selectedCity = $this->cities[0]->id;
         } else {
             $this->cities = [];
         }
@@ -45,7 +46,7 @@ class Locationdropdown extends Component
     public function updatedSelectedCity($city)
     {
         $this->selectedCity = $city;
-        $this->selectedCounty = City::where('id', $city)->county()->id;
+        $this->selectedCounty = City::where('id', $city)->first()->county_id;
     }
 
 }

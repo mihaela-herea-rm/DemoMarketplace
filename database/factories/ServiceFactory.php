@@ -29,7 +29,6 @@ class ServiceFactory extends Factory
             'excerpt' => $this->faker->paragraphs(2, true),
             'body' => $this->faker->paragraphs(6, true),
             'price' => random_int(50, 900),
-            'active' => $this->faker->boolean(),
             'gender' => array_rand([Gender::MALE, Gender::FEMALE, Gender::ANY]),
         ];
     }

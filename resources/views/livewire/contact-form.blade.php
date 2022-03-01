@@ -57,7 +57,7 @@
                         >
                     </div>
                     <div class="relative mb-4">
-                        @error('message')
+                        @error('comment')
                         <p class="text-red-500 mt-1">{{ $message }}</p>
                         @enderror
                         <label for="comment" class="leading-7 text-sm text-gray-600">Message</label>
