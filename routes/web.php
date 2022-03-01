@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'index'])->name('home');
 
 Route::get('/list', [ServiceController::class, 'list']);
-Route::get('services/{service:slug}', [ServiceController::class, 'details']);
+Route::get('services/{service:slug}', [ServiceController::class, 'details'])->name('services.show');
 
 Route::get('/contact', [ContactController::class, 'get']);
 
@@ -34,7 +34,7 @@ Route::get('/login', [SessionController::class, 'create'])->middleware('guest');
 
 Route::get('logout', [SessionController::class, 'destroy'])->middleware('auth');
 
-Route::post('services/{service:slug}/comments', [CommentsController::class, 'store'])->middleware('auth');
+//Route::post('services/{service:slug}/comments', [CommentsController::class, 'store'])->middleware('auth');
 
 Route::get('user/profile/{user}', [ProfileController::class, 'get'])->middleware('auth');;
 
