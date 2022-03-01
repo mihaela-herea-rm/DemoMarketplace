@@ -11,9 +11,9 @@ class AdminServiceController extends Controller
 {
     public function index()
     {
-        return view('admin.services.index', [
+        return view('admin.services.index'/*, [
             'services' => Service::where('user_id', auth()->user()->id)->paginate(10)
-        ]);
+        ]*/);
     }
 
     public function create()
